@@ -11,6 +11,6 @@ serde = {version = "*", features = ["derive"]}
 serde_json = "*"
 
 [lib]
-name = "rbot-messages"
+name = "rbot_messages"
 path = "src/lib.rs"
 crate-type = ["cdylib", "staticlib", "lib"]
