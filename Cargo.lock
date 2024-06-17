@@ -140,7 +140,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rice-coder"
+name = "rbot-messages"
 version = "0.1.0"
 dependencies = [
  "futures",
