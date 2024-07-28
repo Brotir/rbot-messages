@@ -211,3 +211,9 @@ pub struct RMsgGPS {
     pub x: f32,
     pub y: f32,
 }
+
+#[repr(C)]
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, Default)]
+pub struct MsgAwaitAction {
+    pub value: i32,
+}

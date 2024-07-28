@@ -203,3 +203,10 @@ pub extern "C" fn encode_RMsgGPS(message: msg::RMsgGPS) -> *mut c_char {
     let c_string = unsafe { CString::from_vec_unchecked(bytes) };
     c_string.into_raw()
 }
+
+#[no_mangle]
+pub extern "C" fn encode_MsgAwaitAction(message: msg::MsgAwaitAction) -> *mut c_char {
+    let bytes = serialize_message(&message).unwrap();
+    let c_string = unsafe { CString::from_vec_unchecked(bytes) };
+    c_string.into_raw()
+}

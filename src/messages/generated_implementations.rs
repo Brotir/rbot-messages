@@ -33,6 +33,7 @@ pub enum MessageType {
     RScan(msg::RMsgScan),
     GPS(msg::MsgGPS),
     RGPS(msg::RMsgGPS),
+    AwaitAction(msg::MsgAwaitAction),
 }
 
 macro_rules! id {
@@ -78,6 +79,7 @@ id!(24, msg::RMsgScanObject);
 id!(25, msg::RMsgScan);
 id!(26, msg::MsgGPS);
 id!(27, msg::RMsgGPS);
+id!(28, msg::MsgAwaitAction);
 
 macro_rules! dec_msg {
     ($bytes: expr => $msg: ty) => {
@@ -127,6 +129,9 @@ pub fn decode_message(bytes: &[u8], typ: i32) -> Result<MessageType, std::io::Er
         25 => Ok(MessageType::RScan(dec_msg!(bytes => msg::RMsgScan))),
         26 => Ok(MessageType::GPS(dec_msg!(bytes => msg::MsgGPS))),
         27 => Ok(MessageType::RGPS(dec_msg!(bytes => msg::RMsgGPS))),
+        28 => Ok(MessageType::AwaitAction(
+            dec_msg!(bytes => msg::MsgAwaitAction),
+        )),
 
         _ => Err(Error::new(ErrorKind::InvalidData, "Unexpected type.")),
     }

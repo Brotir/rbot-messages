@@ -188,3 +188,9 @@ pub extern "C" fn decode_RMsgGPS(bytes_ptr: *const u8, len: u32) -> msg::RMsgGPS
     let bytes = unsafe { std::slice::from_raw_parts(bytes_ptr, len as usize) };
     dec!(bytes => msg::RMsgGPS)
 }
+
+#[no_mangle]
+pub extern "C" fn decode_MsgAwaitAction(bytes_ptr: *const u8, len: u32) -> msg::MsgAwaitAction {
+    let bytes = unsafe { std::slice::from_raw_parts(bytes_ptr, len as usize) };
+    dec!(bytes => msg::MsgAwaitAction)
+}
