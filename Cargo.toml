@@ -1,6 +1,6 @@
 [package]
 name = "rbot-messages"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "The `rbot-messages` crate serves as the message handler for the Bot Beats game, containing all the message types to and from the game."
 license = "Apache-2.0"
